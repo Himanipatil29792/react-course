@@ -11,3 +11,42 @@ Steps
 git init
 git branch -M main
 git add.
+
+Episode 3
+//parsel index.html is same as npm run start
+parsel build index.html same as npm build 
+
+
+//React Component
+Everything is component in react
+2 types of component
+1> Class based component= Old way write component
+-Uses JavaScript classes
+
+2> Functional component = New way write component
+-uses JavaScript Function
+-its a normal js function which return something
+-Functional component is a Function that return some piece of React Element or Some piece of JSX code
+
+-jsx is react element so functional component call it as a Function a JavaScript function which returns a react element 
+
+//Component Composition
+-Composing two component into one another(HeadingComponent inside a rendering a Title Coomponent
+
+{} =>Inside curly bracket you can put every javascript code
+eg console.log, addition, concatenation
+
+{Title()}
+<Title/>
+<Title></Title>
+{100 +200}
+
+You can compose any react element inside react element , a component inside a component, a component inside react element you can 
+do a lot of things in these react element you can write this heading component also.
+
+Parcel is a beast. Parcel is managing everything up.Parcel is managing Babel.
+
+Babel is taking your JSX code and converting it to React.createElement.
+
+React element, components, React, root, React dom.render
+
