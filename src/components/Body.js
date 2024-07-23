@@ -1,5 +1,7 @@
 import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
+import resList from "../utils/mockData";
+
 
 
 // const listOfRestaurant=[
@@ -256,13 +258,26 @@ const Body =()=>{
     //Local State Variable - Super powerful variable
     const [listOfRestaurant, setListOfRestaurant]=useState(resList);
 
-    //UseElffect
+    //UseEffect
     //2 arguments- call back function and dependency array
     useEffect(()=>{
-        console.log("useEffect rendered");
+        // console.log("useEffect rendered");
+        fetchData();
     }, []);
 
-    // console.log("Body rendered");
+    const fetchData = async () => {
+        // const data = await fetch(
+        // "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.9615398&lng=79.2961468&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+        // );
+        const data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.0759837&lng=72.8776559&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const json = await data.json();
+        setListOfRestaurant(
+        json.data.cards[0].card.card.gridElements.infoWithStyle.restaurants
+        );
+        console.log(json);
+        };
+
+    console.log("Body rendered");
 
     return(
         <div className="body">
@@ -289,6 +304,8 @@ const Body =()=>{
            // resList.map((restaurant)=>(
             listOfRestaurant.map((restaurant)=>(
             <RestaurantCard key={restaurant.data.id} resData={restaurant} />
+           //<RestaurantCard resData={restaurant} />
+
            ))
            }
             </div>
