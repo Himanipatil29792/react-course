@@ -50,3 +50,37 @@ Babel is taking your JSX code and converting it to React.createElement.
 
 React element, components, React, root, React dom.render
 
+
+?.  => Shows optional chaining
+
+key {}
+key is reserve id
+
+react indexs use this bad practices
+
+
+ ## Two types of Export/Import
+    - Named
+    export const Component;
+    import {Component} from "path"
+
+    - Default export/import
+    export default Component;
+    import component from "path"
+
+
+#### Search Box Body.js
+i am tying input what is happening behind the scene
+
+changing the local state variable
+whenever you change a local state variable react re renders the component.
+
+Whenever state variable update, react triggers a reconciliation cycle(re render the component) 
+
+Input value is changed, so now its time to update my input box. so what is react is doing is react re rendering the body component.
+
+react is re rendering the whole body component, but it is only updating input box value inside the DOM manipulation is very expensive.  
+
+
+Why react is fast???
+Virtual dom is not making it fast this reacts react fiber the new reconciliation algorithm which finds out the difference between two virtual dom and updates the dom only the portion of dom which that portion is required.that is why react fast. 

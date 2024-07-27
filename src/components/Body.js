@@ -1,6 +1,7 @@
 import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import resList from "../utils/mockData";
+import Shimmer from "./Shimmer";
 
 
 
@@ -256,35 +257,77 @@ const Body =()=>{
 
     //UseState
     //Local State Variable - Super powerful variable
-    const [listOfRestaurant, setListOfRestaurant]=useState(resList);
+   // const [listOfRestaurants, setListOfRestaurant] = useState(resList);    //resList old data
+   const [listOfRestaurants, setListOfRestaurant] = useState([]);   //resList is empty now
+
+   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
+
+   const [searchText, setSearchText]=useState("");
+
+   //Whenever state variable update, react triggers a reconciliation cycle(re render the component) 
+    console.log("Body rendered again and again");
+
+    //Normal Js variable
+    // let resList = [];
 
     //UseEffect
     //2 arguments- call back function and dependency array
-    useEffect(()=>{
+    useEffect(() => {
         // console.log("useEffect rendered");
         fetchData();
     }, []);
 
     const fetchData = async () => {
-        // const data = await fetch(
-        // "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.9615398&lng=79.2961468&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-        // );
-        const data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.0759837&lng=72.8776559&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
-        const json = await data.json();
-        setListOfRestaurant(
-        json.data.cards[0].card.card.gridElements.infoWithStyle.restaurants
-        );
-        console.log(json);
-        };
+       //  const data = await fetch(
+       //  "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.9615398&lng=79.2961468&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+       //  );
+         
+       // const data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.0759837&lng=72.8776559&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        
+      // const data=await fetch("https://www.swiggy.com/dapi/menu/v4/full?lat=12.9351929&lng=77.62448069999999&menuId=");
+       
+      const data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.0759837&lng=72.8776559&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+      const json = await data.json();
+      
+      console.log(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
 
-    console.log("Body rendered");
+      setListOfRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+          // setListOfRestaurant(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+        // setListOfRestaurant(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
+      setFilteredRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);   
+    };
 
-    return(
+    // console.log("Body rendered");
+
+    //Conditioanal Rendering 
+    // if(listOfRestaurants.length ===0){
+    //    // return <h3>Loading.........</h3>;
+    //   return <Shimmer/>
+    // }
+
+
+    //Ternary Condition
+    return listOfRestaurants.length === 0 ? (<Shimmer/>) : (
         <div className="body">
             <div className="filter">
+                <div className="search">
+                    <input type="text" className="search-box" value={searchText} onChange={(e)=>{
+                        setSearchText(e.target.value);
+                    }}/>
+                    <button onClick={()=>{
+                        //Filter the restaurant cards and update the UI
+                        //searchText
+                        console.log(searchText);
+
+                       const filteredRestaurant = listOfRestaurants.filter((res)=>res.info.name.toLowerCase().includes(searchText.toLowerCase()));
+
+                       // setListOfRestaurant(filteredRestaurant);
+                       setFilteredRestaurant(filteredRestaurant);
+                    }}>Search</button>
+                </div>
                 <button className="filter-btn" onClick={
                     ()=>{
-                        const filterList=listOfRestaurant.filter((res)=>res.data.avgRating > 4);
+                        const filterList=listOfRestaurants.filter((res)=>res.info.avgRating > 4);
 
                         //console.log(filterList);
                         setListOfRestaurant(filterList);
@@ -300,17 +343,16 @@ const Body =()=>{
             <RestaurantCard resData={resList[1]}/>
             <RestaurantCard resData={resList[2]}/> */}
            
-           {
-           // resList.map((restaurant)=>(
-            listOfRestaurant.map((restaurant)=>(
-            <RestaurantCard key={restaurant.data.id} resData={restaurant} />
-           //<RestaurantCard resData={restaurant} />
+             {/* resList.map((restaurant)=>( */}
 
-           ))
-           }
+           {/* listOfRestaurants.map((restaurant)=>( */}
+
+            {filteredRestaurant.map((restaurant)=>(
+            <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+           ))}
             </div>
         </div>
-    )
-  }
+    );
+  };
 
   export default Body;

@@ -1,6 +1,6 @@
 const resList = [
     {
-      data: {
+      info: {
         id: "78036",
         name: "Burger King",
         cloudinaryImageId: "e33e1d3ba7d6b2bb0d45e1001b731fcf",
@@ -74,7 +74,7 @@ const resList = [
       },
     },
     {
-      data: {
+      info: {
         id: "32399",
         name: "McDonald's",
         cloudinaryImageId: "bb7ae131544c7d37e10fc5faf76f09d6",
@@ -169,7 +169,7 @@ const resList = [
       },
     },
     {
-      data: {
+      info: {
         id: "82668",
         name: "The Belgian Waffle Co.",
         cloudinaryImageId: "846dab8cca3c56a482d7cbcda0dd0eb9",
@@ -244,7 +244,7 @@ const resList = [
       },
     },
     {
-      data: {
+      info: {
         id: "116963",
         name: "Monginis",
         cloudinaryImageId: "hyzmji0gto0g7hag9y3z",
@@ -319,7 +319,7 @@ const resList = [
       },
     },
     {
-      data: {
+      info: {
         id: "11239",
         name: "Thambbi",
         cloudinaryImageId: "t6av3q7weumzdozcmowp",
@@ -413,7 +413,7 @@ const resList = [
       },
     },
     {
-      data: {
+      info: {
         id: "28405",
         name: "Chinese Wok",
         cloudinaryImageId: "e0839ff574213e6f35b3899ebf1fc597",
@@ -487,7 +487,7 @@ const resList = [
       },
     },
     {
-      data: {
+      info: {
         id: "15837",
         name: "PizzaExpress",
         cloudinaryImageId: "bb1d7cd7173f315487ed009ba7ca8b9d",
@@ -578,7 +578,7 @@ const resList = [
       },
     },
     {
-      data: {
+      info: {
         id: "9052",
         name: "Subway",
         cloudinaryImageId: "1ace5fa65eff3e1223feb696c956b38b",
@@ -671,7 +671,7 @@ const resList = [
       },
     },
     {
-      data: {
+      info: {
         id: "391816",
         name: "Louis Burger",
         cloudinaryImageId: "19d3d352cc815b9d88b22617b41fa97b",
@@ -762,7 +762,7 @@ const resList = [
       },
     },
     {
-      data: {
+      info: {
         id: "395334",
         name: "McDonald's Gourmet Burger Collection",
         cloudinaryImageId: "txirbmikcfw5yijtcfs5",
@@ -834,7 +834,7 @@ const resList = [
       },
     },
     {
-      data: {
+      info: {
         id: "28721",
         name: "Oven Story Pizza - Standout Toppings",
         cloudinaryImageId: "f986df6f1a1fcf2ff24d2eaf44d570a7",
@@ -908,7 +908,7 @@ const resList = [
       },
     },
     {
-      data: {
+      info: {
         id: "42885",
         name: "Rolls Mania",
         cloudinaryImageId: "g7donnzr1ev21elpr3nf",
@@ -983,7 +983,7 @@ const resList = [
       },
     },
     {
-      data: {
+      info: {
         id: "156134",
         name: "The Good Bowl",
         cloudinaryImageId: "0b3356a88b6fc5966c452c4c9b1b5e4a",
@@ -1062,7 +1062,7 @@ const resList = [
       },
     },
     {
-      data: {
+      info: {
         id: "202836",
         name: "Hangout Cakes & More",
         cloudinaryImageId: "51f9c55884b15013b2c8582505a1ee4f",
@@ -1153,7 +1153,7 @@ const resList = [
       },
     },
     {
-      data: {
+      info: {
         id: "58396",
         name: "Apsara Ice Creams",
         cloudinaryImageId: "hal5rg4uzokxwbtwfrh5",
@@ -1245,7 +1245,7 @@ const resList = [
       },
     },
     {
-      data: {
+      info: {
         id: "17499",
         name: "Faasos - Wraps & Rolls",
         cloudinaryImageId: "af33b81798b11deba338e94b7585d348",
@@ -1348,7 +1348,7 @@ const resList = [
       },
     },
     {
-      data: {
+      info: {
         id: "62894",
         name: "LunchBox - Meals and Thalis",
         cloudinaryImageId: "pjobovhpe4jwxdxoe1ns",
@@ -1449,7 +1449,7 @@ const resList = [
       },
     },
     {
-      data: {
+      info: {
         id: "337459",
         name: "Goodness To Go",
         cloudinaryImageId: "xnqmiqatrp5ki0k206o3",
@@ -1532,7 +1532,7 @@ const resList = [
       },
     },
     {
-      data: {
+      info: {
         id: "86155",
         name: "Kitchen Garden by Suzette",
         cloudinaryImageId: "bttsvynpr8x77z6hu9b1",
@@ -1604,7 +1604,7 @@ const resList = [
       },
     },
     {
-      data: {
+      info: {
         id: "5691",
         name: "Smoke House Deli",
         cloudinaryImageId: "f5rgvghgew6hmnmbg3rn",
