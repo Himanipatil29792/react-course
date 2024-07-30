@@ -84,3 +84,26 @@ react is re rendering the whole body component, but it is only updating input bo
 
 Why react is fast???
 Virtual dom is not making it fast this reacts react fiber the new reconciliation algorithm which finds out the difference between two virtual dom and updates the dom only the portion of dom which that portion is required.that is why react fast. 
+
+
+###Episode 7
+## How useEffect called??
+Use Effect called using two argument, first is callback function and second is dependency array.
+
+##When this useEffect called??
+This useEffect is called After every render of that component. that means
+
+I have used this useEffect inside my header component that means every time that the deffination of useEffect is called every time my component renders.
+
+In useEffect put on dependency arrary, array changes the behavior of its render.
+
+If no dependency array => useEffect is called on every time to render
+
+If dependency array is empty = [] => useEffect is called on initial render(just once time)
+
+If put on some in dependency array, it will only be called when the dependency changes.
+
+If dependency array is [btnNameReact] => called every time btnNameReact is updated.
+
+So dependency is on btn name react that means every time my btn name react changes my useEffect will be called.
+
