@@ -64,3 +64,8 @@
 .login{
     padding: 0 15px;
 }
+.user-card{
+    border:2px solid gray;
+    padding: 0px 15px;
+    margin-bottom: 15px;
+}

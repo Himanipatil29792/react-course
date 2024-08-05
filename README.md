@@ -50,3 +50,48 @@
 Normal JS utility function
 -useState()- Superpowerful state variables in react
 -useEffect()
+
+
+### How the Life Cycle is worked
+-Parent Constructor
+-Parent Render
+    
+    -First Constructor
+    -First Render
+
+    -Second constructor
+    -Second Render
+
+    -third constructor
+    -third Render
+
+    <DOM UPDATED - IN SINGLE BATCH
+    -First ComponentDidMount
+    -Second ComponentDidMount
+    -Third ComponentDidMount
+
+-Parent ComponentDidMount
+
+
+
+### ---Mounting----
+-constructor (dummy)
+-Render (dummy)
+    <html Dummy>
+    componentDidMount
+    <API Call>
+    <this.setState> -> State variable is updated
+### ----Update-----
+    -render(API data)
+    -<html (new API data loaded)>
+    -ComponentDidUpdate
+
+
+
+### Show code in different chunk
+-Chunking
+-Code splitting / Data fetching
+-Dynamic Bundling
+-Lazy Loading
+-On demand loading
+-dynamic import

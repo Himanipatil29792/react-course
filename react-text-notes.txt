@@ -70,7 +70,7 @@ react indexs use this bad practices
 
 
 #### Search Box Body.js
-i am tying input what is happening behind the scene
+i am typing input what is happening behind the scene
 
 changing the local state variable
 whenever you change a local state variable react re renders the component.
@@ -107,3 +107,7 @@ If dependency array is [btnNameReact] => called every time btnNameReact is updat
 
 So dependency is on btn name react that means every time my btn name react changes my useEffect will be called.
 
+
+https://github.com/namastedev/namaste-react/blob/main/src/components/RestaurantMenu.js  
+
+React GitHub akshay created

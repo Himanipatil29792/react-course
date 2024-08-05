@@ -1,0 +1,9 @@
+function Count(x){
+return {
+x++;
+}
+}
+
+export default Count;
+
+useEffect(getNumber, toNumber);DRZ5X67CVPBL nbgfrewqwaqQ2R
