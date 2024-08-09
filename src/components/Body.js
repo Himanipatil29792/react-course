@@ -320,12 +320,12 @@ const Body =()=>{
     //Ternary Condition
     return listOfRestaurants.length === 0 ? (<Shimmer/>) : (
         <div className="body">
-            <div className="filter">
-                <div className="search">
-                    <input type="text" className="search-box" value={searchText} onChange={(e)=>{
+            <div className="filter flex">
+                <div className="search px-4">
+                    <input type="text" className="border border-solid border-black" value={searchText} onChange={(e)=>{
                         setSearchText(e.target.value);
                     }}/>
-                    <button onClick={()=>{
+                    <button className="px-5 py-1 bg-green-400 my-7 mx-4 rounded-lg" onClick={()=>{
                         //Filter the restaurant cards and update the UI
                         //searchText
                         console.log(searchText);
@@ -336,7 +336,7 @@ const Body =()=>{
                        setFilteredRestaurant(filteredRestaurant);
                     }}>Search</button>
                 </div>
-                <button className="filter-btn" onClick={
+                <button className="px-5 py-1 my-7 bg-gray-400 rounded-lg" onClick={
                     ()=>{
                         const filterList=listOfRestaurants.filter((res)=>res.info.avgRating > 4);
 
@@ -345,7 +345,7 @@ const Body =()=>{
                     }
                 }>Top Rated Restaurants</button>
             </div>
-            <div className="res-container">
+            <div className="res-container flex flex-wrap">
             {/* <RestaurantCard resName="KFC" cuisine="Burger, Fast Food"/> */}
 
             {/* <RestaurantCard resData={resObj} /> */}

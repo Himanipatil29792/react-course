@@ -19,16 +19,16 @@ useEffect(()=>{
 const onlineStatus=useOnlineStatus();
 
     return (
-      <div className="header">
+      <div className="flex justify-between my-2 bg-purple-200 shadow-lg sm:bg-yellow-100 lg:bg-blue-100">
         <div className="logo-container">
           <img
-            className="logo w-28"
+            className="logo w-24"
             alt="logo"
             src={LOGO_URL}
           />
         </div>
-        <div className="nav-items">
-          <ul className="">
+        <div className="flex items-center">
+          <ul className="flex p-2 pr-4">
           <li>Online Status: {onlineStatus ? "✅" : "❎"}</li>
             <li className="px-4"><Link to="/">Home</Link></li>
             <li className="px-4"><Link to="/about">About Us</Link></li>
