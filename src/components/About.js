@@ -1,6 +1,7 @@
 import User from "./User";
 import UserClass from "./UserClass";
 import {Component} from "react";
+import UserContext from "../utils/UserContext";
 
 
 // About component convert class based componnent
@@ -24,9 +25,22 @@ class About extends Component{
         return(
             <div>
                 <h1>About Page</h1>
+                <div>
+                    LoggedInUser 
+                    <UserContext.Consumer>
+                     {/* {(data)=> console.log(data)} */}
+                     {({loggedInUser})=><h1 className="font-bold">{loggedInUser}</h1>}
+                    </UserContext.Consumer>
+                </div>
                 <UserClass name={"First class props"} location={"Mumbai class"} />
                 {/* <UserClass name={"Second class props"} location={"Mumbai class"} />
                 <UserClass name={"Third class props"} location={"Mumbai class"} /> */}
+
+                <UserContext.Consumer>
+                     {/* {(data)=> console.log(data)} */}
+                     {({loggedInUser})=><h1 className="font-bold">{loggedInUser}</h1>}
+                    </UserContext.Consumer>
+                    
             </div>
         )
     }

@@ -1,10 +1,10 @@
-import RestaurantCard from "./RestaurantCard";
-import { useState, useEffect } from "react";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
+import { useState, useEffect, useContext } from "react";
 import resList from "../utils/mockData";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
-
+import UserContext from "../utils/UserContext";
 
 
 // const listOfRestaurant=[
@@ -266,6 +266,8 @@ const Body =()=>{
 
    const [searchText, setSearchText]=useState("");
 
+   const RestaurantCardPromoted=withPromotedLabel(RestaurantCard);
+
    //Whenever state variable update, react triggers a reconciliation cycle(re render the component) 
     console.log("Body rendered again and again");
 
@@ -317,6 +319,7 @@ const Body =()=>{
         );
     }
 
+    const {loggedInUser, setUserName}=useContext(UserContext);
     //Ternary Condition
     return listOfRestaurants.length === 0 ? (<Shimmer/>) : (
         <div className="body">
@@ -344,6 +347,10 @@ const Body =()=>{
                         setListOfRestaurant(filterList);
                     }
                 }>Top Rated Restaurants</button>
+
+                <button className="px-5 py-1 my-7">
+                    UserName : <input className="border border-black" value={loggedInUser} onChange={(e)=> setUserName(e.target.value)} />
+                </button>
             </div>
             <div className="res-container flex flex-wrap">
             {/* <RestaurantCard resName="KFC" cuisine="Burger, Fast Food"/> */}
@@ -359,7 +366,13 @@ const Body =()=>{
            {/* listOfRestaurants.map((restaurant)=>( */}
 
             {filteredRestaurant.map((restaurant)=>(
-           <Link key={restaurant.info.id} to={"/restaurants/"+ restaurant.info.id}><RestaurantCard resData={restaurant} /></Link>
+           <Link key={restaurant.info.id} to={"/restaurants/"+ restaurant.info.id}>
+           
+           {
+                restaurant.info.promoted ? (<RestaurantCardPromoted resData={restaurant} />) : (<RestaurantCard resData={restaurant} />)
+           }
+
+           </Link>
            ))}
             </div>
         </div>

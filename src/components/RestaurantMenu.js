@@ -3,10 +3,13 @@ import { RESTAURANT_MENU } from "../utils/constants";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
+import RestaurantCategory from "./RestaurantCategory";
 
 const RestaurantMenu=()=>{
 
    // const[resInfo, setResInfo]=useState(null);
+
+   const [showIndex, setShowIndex]=useState(0);
 
    const {resId}=useParams();
    //console.log(resId);
@@ -33,21 +36,37 @@ const RestaurantMenu=()=>{
  
 
    const {itemCards}=resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
-   console.log(itemCards);
+   // console.log(itemCards);
 
+// console.log(resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
+
+   const categories=
+   resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+    (c) => 
+        c.card?.card?.["@type"] === 
+    "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
+
+   // console.log(categories);
 
 
     return (
-        <div className="menu">
-            <h2>{name}</h2>
-            <h4>Menu</h4>
-            <p>{cuisines.join("")} - {costForTwoMessage}</p>
+        <div className="text-center">
+            <h2 className="font-bold my-6 text-2xl">{name}</h2>
+            <p className="font-bold">{cuisines.join("")} - {costForTwoMessage}</p>
             
-            <ul>            
+            {/* <ul>          // Print Menu for each itemcard    
                 {itemCards.map((item)=>(
                     <li key={item.card.info.id}> {item.card.info.name} - Rs.{item.card.info.defaultPrice/100 || item.card.info.finalPrice/100 || item.card.info.price/100}</li>
                 ))};
-            </ul>
+            </ul> */}
+
+        {categories.map((category,index) => (
+            //Controlled component
+            <RestaurantCategory key={category?.card?.card?.title} data={category?.card?.card} 
+            showItem={index === showIndex ? true : false} 
+            setShowIndex={()=>setShowIndex(index)} />
+        ))}
         </div>
     );
 }
