@@ -8,11 +8,12 @@ const {loggedInUser}=useContext(UserContext);
 
     // const {resName,cuisine}=props;
       const {resData}=props;
+    console.log(resData);
     
       const {name,cuisines,avgRating,costForTwo,deliveryTime}=resData.info;
      
       return (
-      <div className="res-card m-4 p-4 w-[220px] rounded-lg bg-slate-100 hover:bg-slate-200">
+      <div data-testid="resCard" className="res-card m-4 p-4 w-[220px] rounded-lg bg-slate-100 hover:bg-slate-200">
         <img className="rounded-lg h-[120px] w-[100%]" alt="res-img" src={
           CON_URL + resData.info.cloudinaryImageId
         }/>

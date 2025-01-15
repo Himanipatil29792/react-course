@@ -95,3 +95,28 @@ Normal JS utility function
 -Lazy Loading
 -On demand loading
 -dynamic import
+
+## Redux Toolkit
+- Install @reduxjs/toolkit and react-redux 
+- Build our store 
+- Connect our store to our app
+- Slice (cartSlice
+- Dispatch (action)
+- Selector
+
+## Types of testing (developer)
+- Unit testing
+- Integration testing
+- End to end testing - e2e testing
+
+## Setting up testing in our app
+- Install react testing libraray
+- Installed jest
+- Installed babel dependencies
+- Configure babel
+- Configure Parcel Config file to disable default babel transpilation
+- Jest configuration
+- Install jsdom library
+- Install @babel/preset-react - to make JSX work in test cases
+- Include @babel/preset-react inside my babel config
+- Install @testing-library/jest-dom

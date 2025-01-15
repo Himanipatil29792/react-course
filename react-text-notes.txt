@@ -111,3 +111,19 @@ So dependency is on btn name react that means every time my btn name react chang
 https://github.com/namastedev/namaste-react/blob/main/src/components/RestaurantMenu.js  
 
 React GitHub akshay created
+
+
+
+
+## Why are created custom hook? 
+
+
+Episode 12
+Redux
+
+To write data =>
+we click on this add button it dispatches an action which call the reducer function which is a   reducer function that modifies the slice of our redux store.
+
+Read the data => use selector (subscribing to the store)
+
+ This header component is subscribed to this store using selector.it will automatically update.

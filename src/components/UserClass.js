@@ -35,7 +35,7 @@ componentDidUpdate(){
     console.log("Component Did Update");
 }
 
-render(){
+render(){                   
       //  const {name,location}=this.props;
       //  const {count,count2}=this.state;
 
