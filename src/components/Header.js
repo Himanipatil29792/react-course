@@ -28,7 +28,7 @@ const cartItems = useSelector((store) => store.cart.items);
 // console.log(cartItems);
 
     return (
-      <div className="flex justify-between my-2 bg-purple-200 shadow-lg sm:bg-yellow-100 lg:bg-blue-100">
+      <div className="flex justify-between my-2 bg-purple-200 shadow-lg sm:bg-yellow-100 lg:bg-blue-100 w-100 flex-wrap">
         <div className="logo-container">
           <img
             className="logo w-24"

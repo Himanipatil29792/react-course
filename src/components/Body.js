@@ -283,17 +283,17 @@ const Body =()=>{
 
     const fetchData = async () => {
        
-       
-      const data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING");
+      //  const data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.2069473&lng=73.1034258&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+      const data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.2069473&lng=73.1034258&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
       
       const json = await data.json();
       
-      console.log(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+      console.log(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
 
-      setListOfRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+      setListOfRestaurant(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
           // setListOfRestaurant(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
         // setListOfRestaurant(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
-      setFilteredRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);   
+      setFilteredRestaurant(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);   
     };
 
     // console.log("Body rendered");
@@ -317,12 +317,12 @@ const Body =()=>{
     //Ternary Condition
     return listOfRestaurants.length === 0 ? (<Shimmer/>) : (
         <div className="body">
-            <div className="filter flex">
-                <div className="search px-4">
+            <div className="filter flex flex-wrap">
+                <div className="search px-5 my-7 flex">
                     <input type="text" data-testid = "searchInput" className="border border-solid border-black" value={searchText} onChange={(e)=>{
                         setSearchText(e.target.value);
                     }}/>
-                    <button className="px-5 py-1 bg-green-400 my-7 mx-4 rounded-lg" onClick={()=>{
+                    <button className="px-5 py-1 bg-green-400 mx-4 rounded-lg" onClick={()=>{
                         //Filter the restaurant cards and update the UI
                         //searchText
                         console.log(searchText);
@@ -335,15 +335,16 @@ const Body =()=>{
                 </div>
                 <button className="px-5 py-1 my-7 bg-gray-400 rounded-lg" onClick={
                     ()=>{
-                        const filterList=listOfRestaurants.filter((res)=>res.info.avgRating > 4);
+                        const filterList=listOfRestaurants.filter((res)=>res.info.avgRating > 4.3);
 
-                        //console.log(filterList);
-                        setListOfRestaurant(filterList);
+                        console.log(filterList);
+                         setListOfRestaurant(filterList);
+                        // setFilteredRestaurant(filteredRestaurant);
                     }
                 }>Top Rated Restaurants</button>
 
                 <button className="px-5 py-1 my-7">
-                    UserName : <input className="border border-black" value={loggedInUser} onChange={(e)=> setUserName(e.target.value)} />
+                    UserName : <input className="border border-black" value= { loggedInUser} onChange={(e)=> setUserName(e.target.value)} />
                 </button>
             </div>
             <div className="res-container flex flex-wrap">
