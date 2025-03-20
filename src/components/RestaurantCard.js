@@ -13,8 +13,8 @@ const {loggedInUser}=useContext(UserContext);
       const {name,cuisines,avgRating,costForTwo,deliveryTime}=resData.info;
      
       return (
-      <div data-testid="resCard" className="res-card m-4 p-4 w-[220px] rounded-lg bg-slate-100 hover:bg-slate-200">
-        <img className="rounded-lg h-[120px] w-[100%]" alt="res-img" src={
+      <div data-testid="resCard" className="res-card m-4 p-4 w-[268px] h-[380px] rounded-lg bg-slate-100 overflow-hidden shadow-xl transition ease-in-out delay-75 hover: -translate-y-1 hover:scale-105 duration-300 hover:bg-gray-200">
+        <img className="rounded-lg h-48 w-full" alt="res-img" src={
           CON_URL + resData.info.cloudinaryImageId
         }/>
         {/* <h3>{resData.resName}</h3> */}
@@ -27,10 +27,10 @@ const {loggedInUser}=useContext(UserContext);
 
         <h3 className="font-bold text-lg py-2">{name}</h3>
         <h4>{cuisines.join(", ")}</h4>
-        <h4>{avgRating} stars</h4>
+        <h4><i className="fa fa-star text-yellow-500" aria-hidden="true"></i> {avgRating} stars</h4>
         <h4>{costForTwo}</h4>
         <h4>{deliveryTime} minutes  </h4>
-        <h4>User: {loggedInUser}</h4>
+        {/* <h4>User: {loggedInUser}</h4> */}
       </div>
   )
 }

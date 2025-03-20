@@ -22,24 +22,24 @@ class About extends Component{
 
         // console.log("Parent Render");
 
-        return(
-            <div>
-                <h1>About Page</h1>
+        return( 
+            <div className="mt-28 text-center">
+                  <h1 className="font-bold text-3xl p-4 m-4">About Page</h1>
                 <div>
-                    LoggedInUser 
-                    <UserContext.Consumer>
+                    {/* LoggedInUser 
+                    <UserContext.Consumer> */}
                      {/* {(data)=> console.log(data)} */}
-                     {({loggedInUser})=><h1 className="font-bold">{loggedInUser}</h1>}
-                    </UserContext.Consumer>
+                     {/* {({loggedInUser})=><h1 className="font-bold">{loggedInUser}</h1>}
+                    </UserContext.Consumer> */}
                 </div>
-                <UserClass name={"First class props"} location={"Mumbai class"} />
+                <UserClass name={name} location={"Mumbai class"} />
                 {/* <UserClass name={"Second class props"} location={"Mumbai class"} />
                 <UserClass name={"Third class props"} location={"Mumbai class"} /> */}
 
-                <UserContext.Consumer>
+                {/* <UserContext.Consumer> */}
                      {/* {(data)=> console.log(data)} */}
-                     {({loggedInUser})=><h1 className="font-bold">{loggedInUser}</h1>}
-                    </UserContext.Consumer>
+                     {/* {({loggedInUser})=><h1 className="font-bold">{loggedInUser}</h1>}
+                    </UserContext.Consumer> */}
                     
             </div>
         )

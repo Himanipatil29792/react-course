@@ -317,12 +317,13 @@ const Body =()=>{
     //Ternary Condition
     return listOfRestaurants.length === 0 ? (<Shimmer/>) : (
         <div className="body">
-            <div className="filter flex flex-wrap">
+       
+            <div className="filter flex flex-wrap pt-24 justify-center">
                 <div className="search px-5 my-7 flex">
-                    <input type="text" data-testid = "searchInput" className="border border-solid border-black" value={searchText} onChange={(e)=>{
+                    <input type="text" data-testid = "searchInput" className="border border-solid border-black rounded-lg" value={searchText} onChange={(e)=>{
                         setSearchText(e.target.value);
                     }}/>
-                    <button className="px-5 py-1 bg-green-400 mx-4 rounded-lg" onClick={()=>{
+                    <button className="px-5 py-0 mx-3 rounded-lg bg-orange-600 text-white hover:text-black font-semibold" onClick={()=>{
                         //Filter the restaurant cards and update the UI
                         //searchText
                         console.log(searchText);
@@ -333,21 +334,21 @@ const Body =()=>{
                        setFilteredRestaurant(filteredRestaurant);
                     }}>Search</button>
                 </div>
-                <button className="px-5 py-1 my-7 bg-gray-400 rounded-lg" onClick={
+                <button className="px-5 py-2 my-7 rounded-lg bg-orange-600 text-white hover:text-black font-semibold" onClick={
                     ()=>{
                         const filterList=listOfRestaurants.filter((res)=>res.info.avgRating > 4.3);
 
                         console.log(filterList);
-                         setListOfRestaurant(filterList);
-                        // setFilteredRestaurant(filteredRestaurant);
+                         //setListOfRestaurant(filterList);
+                        setFilteredRestaurant(filterList);
                     }
                 }>Top Rated Restaurants</button>
 
-                <button className="px-5 py-1 my-7">
+                {/* <button className="px-5 py-1 my-7">
                     UserName : <input className="border border-black" value= { loggedInUser} onChange={(e)=> setUserName(e.target.value)} />
-                </button>
+                </button> */}
             </div>
-            <div className="res-container flex flex-wrap">
+            <div className="res-container flex flex-wrap justify-start sm:px-0 lg:px-40">
             {/* <RestaurantCard resName="KFC" cuisine="Burger, Fast Food"/> */}
 
             {/* <RestaurantCard resData={resObj} /> */}
@@ -370,7 +371,8 @@ const Body =()=>{
            </Link>
            ))}
             </div>
-        </div>
+            </div>
+       
     );
   };
 

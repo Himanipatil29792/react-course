@@ -28,7 +28,7 @@ const cartItems = useSelector((store) => store.cart.items);
 // console.log(cartItems);
 
     return (
-      <div className="flex justify-between my-2 bg-purple-200 shadow-lg sm:bg-yellow-100 lg:bg-blue-100 w-100 flex-wrap">
+      <div className="flex sm:px-0 lg:px-40 justify-between bg-purple-200 shadow-lg sm:bg-yellow-100 lg:bg-orange-600 flex-wrap fixed top-0 w-full z-40">
         <div className="logo-container">
           <img
             className="logo w-24"
@@ -37,22 +37,22 @@ const cartItems = useSelector((store) => store.cart.items);
           />
         </div>
         <div className="flex items-center">
-          <ul className="flex p-2 pr-4">
-          <li>Online Status: {onlineStatus ? "✅" : "❎"}</li>
-            <li className="px-4"><Link to="/">Home</Link></li>
-            <li className="px-4"><Link to="/about">About Us</Link></li>
-            <li className="px-4"><Link to="/grocery">Grocery</Link></li>
-            <li className="px-4"><Link to="/contact">Contact Us</Link></li>
-            <li className="px-4 font-bold text-xl"> <Link to="/cart">Cart ({cartItems.length} items)</Link></li>
-            <button className="login" onClick={()=>{
+          <ul className="flex p-2 pr-4 text-white font-bold text-lg">
+          <li>Online: {onlineStatus ? "✅" : "❎"}</li>
+            <li className="px-4 hover:text-black"><Link to="/"> <i class="fa fa-home" aria-hidden="true"></i>&nbsp; Home</Link></li>
+            <li className="px-4 hover:text-black"><Link to="/about"><i class="fa fa-user-o" aria-hidden="true"></i>&nbsp; About Us</Link></li>
+            <li className="px-4 hover:text-black"><Link to="/grocery"><i class="fa fa-shopping-basket" aria-hidden="true"></i>&nbsp; Grocery</Link></li>
+            <li className="px-4 hover:text-black"><Link to="/contact"><i class="fa fa-envelope-o" aria-hidden="true"></i>&nbsp; Contact Us</Link></li>
+            <li className="px-4 hover:text-black"> <Link to="/cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp; Cart <span className="font-bold">{cartItems.length}</span> </Link></li>
+            <button className="px-4 login" onClick={()=>{
              // btnNameReact="Logout";
               
               // setBtnNameReact("Logout");
              // console.log(btnNameReact);
              btnNameReact === "Login" ? setBtnNameReact("Logout") : setBtnNameReact("Login");
-            }}>{btnNameReact}</button>
+            }}><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp; {btnNameReact}</button>
 
-            <li className="font-bold px-4"> {loggedInUser}</li>
+            {/* <li className="font-bold px-4"> {loggedInUser}</li> */}
           </ul>
         </div>
       </div>
